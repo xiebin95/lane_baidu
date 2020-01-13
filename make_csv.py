@@ -5,8 +5,8 @@ from sklearn.utils import shuffle
 label_list = []
 image_list = []
 
-image_dir = ' ~/data/LaneSeg/Image_Data/'
-label_dir = ' ~/data/LaneSeg/Gray_Label/'
+image_dir = '~/data/LaneSeg/Image_Data/'
+label_dir = '~/data/LaneSeg/Gray_Label/'
 
 '''Label_path =   ~/data/LaneSeg/Gray_Label/Label_road02/Label/Record001/Camera 
 5'''
