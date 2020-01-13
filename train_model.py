@@ -3,6 +3,7 @@ import pandas as pd
 from utils.data_feeder import *
 from lossse import *
 from deeplabv3plus import deeplabv3_plus
+from tensorboard.keras.callbacks import TensorBoard
 # import os
 # # 使用第一张与第三张GPU卡
 # os.environ["CUDA_VISIBLE_DEVICES"] = "0,5,6"
@@ -21,6 +22,6 @@ molde_test.compile(loss=categorical_crossentropy_with_logits, optimizer=adam, me
 # molde_test.fit_generator(train_image_gen(train_list),steps_per_epoch = len(train_list)//4, epochs= 100)
 batch_size = 4
 steps_per_epoch = len(train_list)/batch_size
-molde_test.fit_generator(train_image_gen(train_list,batch_size),steps_per_epoch = steps_per_epoch, epochs= 50)
+molde_test.fit_generator(train_image_gen(train_list,batch_size),steps_per_epoch = steps_per_epoch, epochs= 50,callbacks=[TensorBoard(log_dir='./tmp/log')] )
 molde_test.save('test_deeplabv3_plus.h5')
 
