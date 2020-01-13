@@ -3,9 +3,9 @@ import pandas as pd
 from utils.data_feeder import *
 from lossse import *
 from deeplabv3plus import deeplabv3_plus
-import os
-# 使用第一张与第三张GPU卡
-os.environ["CUDA_VISIBLE_DEVICES"] = "0,5,6"
+# import os
+# # 使用第一张与第三张GPU卡
+# os.environ["CUDA_VISIBLE_DEVICES"] = "0,5,6"
 
 data_dir = '../../private/lane_baidu/csv_data/train.csv'
 train_list = pd.read_csv(data_dir)
