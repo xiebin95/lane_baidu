@@ -81,6 +81,6 @@ train_dataset = all_shuffle[:sixth_part]
 val_dataset = all_shuffle[sixth_part:eighth_part]
 test_dataset = all_shuffle[eighth_part:]
 
-train_dataset.to_csv('~/lane_baidu/csv_data/train.csv', index=False)
-val_dataset.to_csv('~/lane_baidu/csv_data/val.csv', index=False)
-test_dataset.to_csv('~/lane_baidu/csv_data/test.csv', index=False)
+train_dataset.to_csv('~private/lane_baidu/csv_data/train.csv', index=False)
+val_dataset.to_csv('~private/lane_baidu/csv_data/val.csv', index=False)
+test_dataset.to_csv('~private/lane_baidu/csv_data/test.csv', index=False)
