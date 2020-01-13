@@ -4,7 +4,7 @@ from utils.data_feeder import *
 from lossse import *
 from deeplabv3plus import deeplabv3_plus
 from tensorflow.keras.callbacks import TensorBoard
-# import os
+import os
 # 使用第五张GPU卡
 os.environ["CUDA_VISIBLE_DEVICES"] = "5"
 
