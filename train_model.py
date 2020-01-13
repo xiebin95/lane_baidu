@@ -3,7 +3,7 @@ import pandas as pd
 from utils.data_feeder import *
 from lossse import *
 from deeplabv3plus import deeplabv3_plus
-from tensorboard.keras.callbacks import TensorBoard
+from tensorflow.keras.callbacks import TensorBoard
 # import os
 # # 使用第一张与第三张GPU卡
 # os.environ["CUDA_VISIBLE_DEVICES"] = "0,5,6"
