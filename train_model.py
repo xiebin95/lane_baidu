@@ -12,7 +12,7 @@ train_list = pd.read_csv(data_dir)
 test_deeplabv3_plus  = deeplabv3_plus()
 
 
-molde_test = test_deeplabv3_plus.net((1024, 384,3),8)
+molde_test = test_deeplabv3_plus.net((384,1024,3),8)
 print(molde_test.summary())
 adam = tf.keras.optimizers.Adam()  # 优化函数，设定学习率（lr）等参数
 molde_test.compile(loss=categorical_crossentropy_with_logits, optimizer=adam, metrics=['sparse_categorical_accuracy',def_mean_iou])
