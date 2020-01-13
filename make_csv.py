@@ -5,8 +5,8 @@ from sklearn.utils import shuffle
 label_list = []
 image_list = []
 
-image_dir = '~/data/LaneSeg/Image_Data/'
-label_dir = '~/data/LaneSeg/Gray_Label/'
+image_dir = '../../data/LaneSeg/Image_Data/'
+label_dir = '../../data/LaneSeg/Gray_Label/'
 
 '''Label_path =   ~/data/LaneSeg/Gray_Label/Label_road02/Label/Record001/Camera 
 5'''
@@ -81,6 +81,6 @@ train_dataset = all_shuffle[:sixth_part]
 val_dataset = all_shuffle[sixth_part:eighth_part]
 test_dataset = all_shuffle[eighth_part:]
 
-train_dataset.to_csv('~private/lane_baidu/csv_data/train.csv', index=False)
-val_dataset.to_csv('~private/lane_baidu/csv_data/val.csv', index=False)
-test_dataset.to_csv('~private/lane_baidu/csv_data/test.csv', index=False)
+train_dataset.to_csv('../../private/lane_baidu/csv_data/train.csv', index=False)
+val_dataset.to_csv('../../private/llane_baidu/csv_data/val.csv', index=False)
+test_dataset.to_csv('../../private/llane_baidu/csv_data/test.csv', index=False)
