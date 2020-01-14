@@ -4,9 +4,9 @@ from utils.data_feeder import *
 from lossse import *
 from deeplabv3plus import deeplabv3_plus
 from tensorflow.keras.callbacks import TensorBoard
-import os
-# 使用第五张GPU卡
-os.environ["CUDA_VISIBLE_DEVICES"] = "1"
+# import os
+# # 使用第五张GPU卡
+# os.environ["CUDA_VISIBLE_DEVICES"] = "1"
 
 data_dir = '../../private/lane_baidu/csv_data/train.csv'
 train_list = pd.read_csv(data_dir)
