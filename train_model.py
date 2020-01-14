@@ -6,7 +6,7 @@ from deeplabv3plus import deeplabv3_plus
 from tensorflow.keras.callbacks import TensorBoard
 import os
 # 使用第五张GPU卡
-os.environ["CUDA_VISIBLE_DEVICES"] = "2,6"
+os.environ["CUDA_VISIBLE_DEVICES"] = "0,1,2,3,4,5,6,7"
 
 data_dir = '../../private/lane_baidu/csv_data/train.csv'
 train_list = pd.read_csv(data_dir)
