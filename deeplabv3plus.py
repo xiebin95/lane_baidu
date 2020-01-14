@@ -78,7 +78,7 @@ def aspp(inputs):
 def encode(input_tensor):
 
     encode_aspp = aspp(input_tensor)
-    encode_change_channel = Conv2D(1, 1, 1, padding='same')(encode_aspp)
+    encode_change_channel = Conv2D(input_tensor.shape[-1], 1, 1, padding='same')(encode_aspp)
     encode_upsampling = UpSampling2D((4,4))(encode_change_channel)
     return encode_upsampling
 
@@ -95,7 +95,7 @@ class deeplabv3_plus(tf.keras.Model):
         encode_upsampling = encode(f5)
 
         #decode
-        decode_conv_1x1  = Conv2D(1,1,1,padding = 'same')(f3)
+        decode_conv_1x1  = Conv2D(f5.shape[-1],1,1,padding = 'same')(f3)
         decode_concatenate =  K.concatenate((decode_conv_1x1,encode_upsampling), -1)
         decode_conv_3x3 = Conv2D(nclass,3,1,padding = 'same')(decode_concatenate)
         decode_upsampling = UpSampling2D((4,4))(decode_conv_3x3)
