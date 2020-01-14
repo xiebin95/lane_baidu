@@ -1,7 +1,7 @@
 #train
 import os
 # 使用第五张GPU卡
-os.environ["CUDA_VISIBLE_DEVICES"] = "2"
+os.environ["CUDA_VISIBLE_DEVICES"] = 2
 import pandas as pd
 from utils.data_feeder import *
 from lossse import *
