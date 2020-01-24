@@ -1,7 +1,7 @@
 #train
 import os
-# 使用第六张GPU卡
-os.environ["CUDA_VISIBLE_DEVICES"] = "5"
+# 使用第二张GPU卡
+os.environ["CUDA_VISIBLE_DEVICES"] = "2"
 # import os
 # os.environ["CUDA_DEVICE_ORDER"] = "PCI_BUS_ID"
 # os.environ["CUDA_VISIBLE_DEVICES"] = "-1"
