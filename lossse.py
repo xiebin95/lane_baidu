@@ -62,6 +62,7 @@ def def_mean_iou(y_true, y_pred):
             class_iou_dict[label] = label_iou
         mean_iou = mean_iou + label_iou
     # divide total IoU by number of labels to get mean IoU
+    print(class_iou_dict)
     return mean_iou / num_labels,class_iou_dict
 
 def def_mean_iou_loss(y_true, y_pred):
