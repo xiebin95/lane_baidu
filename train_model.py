@@ -12,7 +12,7 @@ from deeplabv3plus import deeplabv3_plus
 from tensorflow.keras.callbacks import TensorBoard
 from keras.callbacks import EarlyStopping
 
-early_stopping = EarlyStopping(monitor='def_mean_iou[0]', patience=10, verbose=2)
+early_stopping = EarlyStopping(monitor='def_mean_iou_loss', patience=10, verbose=2)
 
 
 data_dir = '../../private/lane_baidu/csv_data/train.csv'
@@ -26,7 +26,7 @@ molde_test = test_deeplabv3_plus.net((384,1024,3),8)
 print(molde_test.summary())
 adam = tf.keras.optimizers.Adam()  # 优化函数，设定学习率（lr）等参数
 
-molde_test.compile(loss=categorical_crossentropy_with_logits, optimizer=adam, metrics=[def_mean_iou[0],def_mean_iou[1]])
+molde_test.compile(loss=categorical_crossentropy_with_logits, optimizer=adam, metrics=[def_mean_iou_loss,def_mean_iou_class_dict])
 # molde_test.fit_generator(train_image_gen(train_list),steps_per_epoch = len(train_list)//4, epochs= 100)
 batch_size = 4
 steps_per_epoch = len(train_list)/batch_size
