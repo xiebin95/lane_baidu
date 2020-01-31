@@ -62,7 +62,7 @@ def def_mean_iou(y_true, y_pred):
             class_iou_dict[label] = label_iou
         mean_iou = mean_iou + label_iou
     # divide total IoU by number of labels to get mean IoU
-    printf(class_iou_dict)
+    print(class_iou_dict)
     return mean_iou / num_labels
 
 def categorical_crossentropy_with_logits(y_true, y_pred):
