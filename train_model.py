@@ -26,10 +26,10 @@ molde_test = test_deeplabv3_plus.net((384,1024,3),8)
 print(molde_test.summary())
 adam = tf.keras.optimizers.Adam()  # 优化函数，设定学习率（lr）等参数
 
-molde_test.compile(loss=categorical_crossentropy_with_logits, optimizer=adam, metrics=[def_mean_iou_loss,def_mean_iou_class_dict])
+molde_test.compile(loss=categorical_crossentropy_with_logits, optimizer=adam, metrics=[def_mean_iou_loss])
 # molde_test.fit_generator(train_image_gen(train_list),steps_per_epoch = len(train_list)//4, epochs= 100)
 batch_size = 4
 steps_per_epoch = len(train_list)/batch_size
-molde_test.fit_generator(train_image_gen(train_list,batch_size),steps_per_epoch = steps_per_epoch, epochs= 10,callbacks=[TensorBoard(log_dir='./tmp/log'),early_stopping] )
+molde_test.fit_generator(train_image_gen(train_list,batch_size),steps_per_epoch = steps_per_epoch, epochs= 10,callbacks=[TensorBoard(log_dir='./tmp/log'),early_stopping,def_mean_iou_class_dict] )
 molde_test.save('test_deeplabv3_plus.h5')
 
