@@ -12,7 +12,7 @@ from deeplabv3plus import deeplabv3_plus
 from tensorflow.keras.callbacks import TensorBoard
 from keras.callbacks import EarlyStopping
 
-early_stopping = EarlyStopping(monitor=def_mean_iou, patience=10, verbose=2)
+early_stopping = EarlyStopping(monitor='def_mean_iou', patience=10, verbose=2)
 
 
 data_dir = '../../private/lane_baidu/csv_data/train.csv'
