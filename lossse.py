@@ -51,17 +51,22 @@ def def_mean_iou(y_true, y_pred):
     num_labels = backend.int_shape(y_pred)[-1]
     # initialize a variable to store total IoU in
     mean_iou = backend.variable(0)
-
+    
+    class_iou_dict = {}
     # iterate over labels to calculate IoU for
-    for label in range(1, num_labels):
-        mean_iou = mean_iou + def_iou(y_true, y_pred, label)
-
+    for label in range(0, num_labels):
+        label_iou = def_iou(y_true, y_pred, label)
+        if label in class_iou_dict.keys():
+            class_iou_dict[label] = class_iou_dict[label] + label_iou
+        else:
+            class_iou_dict[label] = label_iou
+        mean_iou = mean_iou + label_iou
     # divide total IoU by number of labels to get mean IoU
-    return mean_iou / (num_labels-1)
+    return mean_iou / num_labels,class_iou_dict
 
 def categorical_crossentropy_with_logits(y_true, y_pred):
 
-    mean_iou_loss = 1 - def_mean_iou(y_true, y_pred)
+    mean_iou_loss = 1 - def_mean_iou(y_true, y_pred)[0]
     y_true =  backend.cast(y_true, tf.uint8)
     # compute cross entropy
     y_pred = backend.reshape(y_pred, shape=(-1, y_pred.shape[-1]))
